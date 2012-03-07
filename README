@@ -1,0 +1,25 @@
+# clj-tree-zipper
+
+Tree structure based zipper (clojure.zip), loosely modeled after
+filesystem concepts.
+
+## Usage
+
+Three is asumed to have one root element, represented by path '("/").
+A default starting root is provided, called *root*. New trees can be built
+starting from *root*.
+
+(import [clj_tree_zipper.core File Directory])
+
+(def tree1 (clj-tree-zipper.core/add-at-path *root* '("/")
+     (clj_tree_zipper.core.File. "f.txt")))
+(def tree2 (clj-tree-zipper.core/remove-path tree1 '("/" "f.txt")))
+
+All zipper api functions apply.
+Provides convinience functions 'add-at-path, remove-path, path-up and find-path
+
+## License
+
+Copyright (C) 2012 pgdad
+
+Distributed under the Eclipse Public License, the same as Clojure.
